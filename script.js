@@ -23,16 +23,11 @@ for (let r = 0; r < tamanho; r++) {
     cadacor.dataset.colorCode = cor;
 
     cadacor.addEventListener("click", function () {
-      const corparacopiar = this.dataset.colorCode
+
       
         this.textContent = this.dataset.colorCode;
         this.style.color = (valorDecimal < 128) ? "#FFFFFF" : "#000000"
      
-      navigator.clipboard.writeText(corparacopiar);
-      this.textContent = "COPIADO!";
-      setTimeout(() => {
-        this.textContent = corparacopiar
-      }, 600);
     });
     tabela.appendChild(cadacor);
   }
@@ -41,9 +36,3 @@ const botao = document.querySelector("#bobo");
 botao.addEventListener("click", () => {
   window.location.reload();
 })
-
-
-const displayBox = document.getElementById('cor-display');
-const displayCodigo = document.getElementById('cor-codigo');
-
-
