@@ -1,5 +1,6 @@
 const tabela = document.getElementById('minha-tabela');
 const tamanho = 5;
+const telamain =document.querySelector('main');
 
 for (let r = 0; r < tamanho; r++) {
   for (let c = 0; c < tamanho; c++) {
@@ -24,15 +25,23 @@ for (let r = 0; r < tamanho; r++) {
 
     cadacor.addEventListener("click", function () {
 
-      
-        this.textContent = this.dataset.colorCode;
-        this.style.color = (valorDecimal < 128) ? "#FFFFFF" : "#000000"
-     
+      telamain.style.backgroundColor = this.dataset.colorCode;
+      telamain.style.color = (valorDecimal < 128) ? "#FFFFFF" : "#000000"
+      this.textContent = this.dataset.colorCode;
+      this.style.color = (valorDecimal < 128) ? "#FFFFFF" : "#000000"
+
     });
     tabela.appendChild(cadacor);
   }
 };
 const botao = document.querySelector("#bobo");
-botao.addEventListener("click", () => {
-  window.location.reload();
-})
+botao.addEventListener("click", function() {
+  const todasAsCores =document.querySelectorAll(".grid>div");
+
+  todasAsCores.forEach(function(cadacor){
+    cadacor.textContent="";
+    
+  })
+  telamain.style.backgroundColor="";
+  telamain.style.color="";
+});
